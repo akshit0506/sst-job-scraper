@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Secrets & local state
+.env
+service_account.json
+data/*.sqlite
+data/*.db
+data/raw/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,23 @@
+# Filtering thresholds. Edit these freely — they're read at runtime.
+
+# Internship stipend floor (INR/month). SST target: > 75,000
+internship_min_stipend_inr_monthly: 75000
+
+# Full-time CTC floor (INR/year). SST target: > 20 lakh (20,00,000)
+fulltime_min_ctc_inr_yearly: 2000000
+
+# For jobs with NO explicit comp, we ask Claude to estimate. A job passes if
+# the estimated comp meets the threshold AND the confidence is >= this level.
+# "low" lets more jobs through (noisier); "high" is strict (fewer false positives).
+min_enrichment_confidence: "medium"   # low | medium | high
+
+# Hard filters
+india_only: true                       # require India location
+allow_remote_global: true              # include "Remote (global)" roles
+
+# Role specializations of interest (soft filter — rank, don't reject)
+specializations:
+  - swe
+  - ai_ml
+  - hft
+  - data

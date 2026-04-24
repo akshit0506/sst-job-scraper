@@ -1,0 +1,25 @@
+# Naukri search queries — one per (keyword, city) pair.
+# Add/remove as your priorities shift.
+
+queries:
+  # Internships
+  - { keyword: "software engineering intern",        location: "bangalore" }
+  - { keyword: "software engineering intern",        location: "hyderabad" }
+  - { keyword: "software engineering intern",        location: "gurgaon" }
+  - { keyword: "software engineering intern",        location: "pune" }
+  - { keyword: "software engineering intern",        location: "mumbai" }
+  - { keyword: "machine learning intern",            location: "bangalore" }
+  - { keyword: "machine learning intern",            location: "hyderabad" }
+  - { keyword: "machine learning intern",            location: "gurgaon" }
+  - { keyword: "ai research intern",                 location: "bangalore" }
+  - { keyword: "quantitative research intern",       location: "mumbai" }
+  - { keyword: "quantitative research intern",       location: "bangalore" }
+  - { keyword: "quant intern",                       location: "gurgaon" }
+  # Full-time
+  - { keyword: "software development engineer",      location: "bangalore" }
+  - { keyword: "machine learning engineer",          location: "bangalore" }
+  - { keyword: "machine learning engineer",          location: "hyderabad" }
+  - { keyword: "quantitative developer",             location: "mumbai" }
+  - { keyword: "quantitative researcher",            location: "gurgaon" }
+  - { keyword: "high frequency trading",             location: "gurgaon" }
+  - { keyword: "ai engineer",                        location: "bangalore" }

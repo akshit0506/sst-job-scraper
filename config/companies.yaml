@@ -1,0 +1,96 @@
+# Curated list of Indian-relevant tech employers, grouped by the ATS
+# their career portal uses. Slugs map directly to ATS public APIs.
+#
+# HOW TO VERIFY A SLUG (before adding):
+#   Greenhouse: curl -s https://boards-api.greenhouse.io/v1/boards/<slug>/jobs
+#   Lever:      curl -s https://api.lever.co/v0/postings/<slug>?mode=json
+#   Ashby:      curl -s https://api.ashbyhq.com/posting-api/job-board/<slug>
+#   Workable:   curl -s https://apply.workable.com/api/v1/widget/accounts/<slug>
+#
+# If you add a company whose slug you're unsure of, run scripts/verify_slugs.py
+# which will ping each endpoint and report 404s.
+
+# ----------------------------------------------------------------------
+greenhouse:
+  # Indian unicorns / scaleups
+  - { name: "Razorpay",         slug: "razorpay" }
+  - { name: "CRED",             slug: "cred" }
+  - { name: "Meesho",           slug: "meesho" }
+  - { name: "Swiggy",           slug: "swiggy" }
+  - { name: "Urban Company",    slug: "urbancompany" }
+  - { name: "Groww",            slug: "groww" }
+  - { name: "Zepto",            slug: "zeptonow" }
+  - { name: "PhonePe",          slug: "phonepe" }
+  - { name: "Dream11",          slug: "dream11" }
+  - { name: "Jar",              slug: "jar" }
+  - { name: "Khatabook",        slug: "khatabook" }
+  - { name: "slice",            slug: "slice" }
+  - { name: "upGrad",           slug: "upgrad" }
+  - { name: "Unacademy",        slug: "unacademy" }
+  - { name: "Chargebee",        slug: "chargebee" }
+  - { name: "Postman",          slug: "postman" }
+  - { name: "Gojek",            slug: "gojek" }
+  - { name: "Zomato",           slug: "zomato" }
+  # Global tech cos with big India engineering footprint
+  - { name: "Stripe",           slug: "stripe" }
+  - { name: "Airbnb",           slug: "airbnb" }
+  - { name: "Coinbase",         slug: "coinbase" }
+  - { name: "GitLab",           slug: "gitlab" }
+  - { name: "HashiCorp",        slug: "hashicorp" }
+  - { name: "DoorDash",         slug: "doordash" }
+  - { name: "Databricks",       slug: "databricks" }
+  - { name: "Snowflake",        slug: "snowflake" }
+  - { name: "Anthropic",        slug: "anthropic" }
+  - { name: "OpenAI",           slug: "openai" }
+
+# ----------------------------------------------------------------------
+lever:
+  - { name: "Plaid",            slug: "plaid" }
+  - { name: "Rippling",         slug: "rippling" }
+  - { name: "Atlassian",        slug: "atlassian" }
+  - { name: "Netflix",          slug: "netflix" }
+  - { name: "Shopify",          slug: "shopify" }
+  - { name: "Figma",            slug: "figma" }
+  - { name: "Brex",             slug: "brex" }
+  - { name: "KhanAcademy",      slug: "khanacademy" }
+  - { name: "Mercari",          slug: "mercari" }
+  - { name: "Segment",          slug: "segment" }
+  # Indian
+  - { name: "Nothing",          slug: "nothing" }
+
+# ----------------------------------------------------------------------
+ashby:
+  # AI labs / well-funded startups (many hire India remote)
+  - { name: "Ramp",             slug: "ramp" }
+  - { name: "Linear",           slug: "linear" }
+  - { name: "Notion",           slug: "notion" }
+  - { name: "Vercel",           slug: "vercel" }
+  - { name: "Perplexity",       slug: "perplexity" }
+  - { name: "Mistral",          slug: "mistral" }
+  - { name: "Cohere",           slug: "cohere" }
+  - { name: "Replicate",        slug: "replicate" }
+  - { name: "Clay",             slug: "clay" }
+  - { name: "Supabase",         slug: "supabase" }
+  # India-founded
+  - { name: "Sarvam AI",        slug: "sarvam" }
+
+# ----------------------------------------------------------------------
+workable:
+  - { name: "Sequretek",        slug: "sequretek" }
+
+# ----------------------------------------------------------------------
+# HFT / quant firms with India offices. Most DON'T publish via ATS feeds —
+# they use their own career sites. Listed here for reference; the Naukri
+# + HN + LLM enrichment pipeline is your primary route for these.
+#
+# hft_reference_only:
+#   - Tower Research Capital (Gurugram)
+#   - Quadeye (Gurugram)
+#   - AlphaGrep (Mumbai/Bengaluru)
+#   - WorldQuant (Mumbai/Bengaluru)
+#   - Graviton Research Capital (Hyderabad)
+#   - Hudson River Trading (India)
+#   - IMC Trading (Mumbai)
+#   - DE Shaw India (Hyderabad/Bengaluru/Gurugram)
+#   - Jump Trading (Bengaluru)
+#   - Optiver (Mumbai — limited)
