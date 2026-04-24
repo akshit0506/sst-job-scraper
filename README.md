@@ -1,1 +1,1 @@
-# ssb-job-scraper
+# sst-job-scraper
