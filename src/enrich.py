@@ -25,6 +25,8 @@ MODEL = "claude-haiku-4-5-20251001"   # fast + cheap for classification
 BATCH_SIZE = 15
 
 SYSTEM_PROMPT = """You classify and estimate compensation for tech job postings in India.
+The downstream consumer is a placements team at an undergraduate CS school —
+they want ONLY entry-level roles (interns, new grads, juniors with ≤2 yrs YoE).
 
 For each job, output JSON with:
   idx:            the integer index (echoed from input)
@@ -36,10 +38,20 @@ For each job, output JSON with:
   confidence:     "low" | "medium" | "high"
   rationale:      one short sentence
 
-Base estimates on: company tier (FAANG/well-funded unicorn/mid-tier/early-stage),
+Seniority rules — be strict, since downstream filters drop mid/senior:
+  - "intern"   → any internship/trainee/apprentice posting
+  - "new_grad" → 0-1 yr YoE, fresher, campus, entry-level, SDE-1, SWE-I
+  - "junior"   → 1-2 yr YoE, associate, junior
+  - "mid"      → 2-5 yr YoE typical, no "senior" in title
+  - "senior"   → 5+ yr YoE, "Senior/Sr/Staff/Lead/Principal/Manager/Architect"
+
+If the title says "Senior" / "Lead" / "Staff" / "Principal" / "Manager", classify
+as senior even if YoE not stated. If unsure between new_grad and junior, prefer junior.
+
+Base comp estimates on: company tier (FAANG/well-funded unicorn/mid-tier/early-stage),
 role seniority, location (tier-1 cities pay more), and specialization (HFT/AI pay
 premiums). Be conservative — only output "high" confidence when the company's
-comp bands are well-documented publicly (FAANG, top unicorns, top HFT firms).
+comp bands are well-documented publicly (FAANG India, top unicorns, top HFT firms).
 
 Return a JSON array of objects, nothing else."""
 
@@ -98,17 +110,4 @@ def enrich(jobs: List[Job]) -> List[Job]:
             if not r:
                 continue
             job.role_type      = r.get("role_type") or job.role_type
-            job.specialization = r.get("specialization") or job.specialization
-            job.seniority      = r.get("seniority") or job.seniority
-            if job.comp_confidence != "explicit":
-                if r.get("stipend_monthly_inr"):
-                    job.stipend_monthly_inr = int(r["stipend_monthly_inr"])
-                if r.get("ctc_yearly_inr"):
-                    job.ctc_yearly_inr = int(r["ctc_yearly_inr"])
-                job.comp_confidence = r.get("confidence", "low")
-                if job.comp_confidence in ("low", "medium", "high"):
-                    # Rewrite to our scheme: keep the confidence level directly
-                    # (used by filter._comp_passes via CONF_RANK)
-                    pass
-
-    return jobs
+            j
