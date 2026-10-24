@@ -1,4 +1,4 @@
-# SST Job Scraper
+# SST (Scaler School of Technology) Job Scraper
 
 Scrapes tech jobs (internships + full-time) from Indian-relevant sources, enriches
 them with Claude to infer compensation, filters by your thresholds, and appends
